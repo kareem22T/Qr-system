@@ -74,6 +74,7 @@ return new class extends Migration
             $table->string('order_number')->nullable();
             $table->string('office_design')->nullable();
             $table->string('office')->nullable();
+            $table->string('general_contractor')->nullable();
             $table->text('qr_code')->nullable();
             $table->timestamps();
         });
