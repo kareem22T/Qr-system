@@ -41,7 +41,7 @@ class LicenseController extends Controller
         $license = License::create($request->all());
 
         if ($license) {
-            $qr = QrCode::size(260)->generate('http://127.0.0.1:8001/licenses/' . $license->id);
+            $qr = QrCode::size(260)->generate('https://qr.webbing-agency.com/licenses/' . $license->id);
             $license->qr_code = $qr;
             $license->save();
 
