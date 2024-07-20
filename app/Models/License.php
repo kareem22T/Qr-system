@@ -69,6 +69,8 @@ class License extends Model
         'east_coordinate',
         'north_coordinate',
         'order_number',
+        'office_design',
+        'offices',
         'qr_code',
     ];
 
