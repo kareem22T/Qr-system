@@ -70,7 +70,7 @@ class License extends Model
         'north_coordinate',
         'order_number',
         'office_design',
-        'offices',
+        'office',
         'qr_code',
     ];
 
