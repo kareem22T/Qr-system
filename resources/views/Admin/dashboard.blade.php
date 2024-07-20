@@ -43,9 +43,12 @@
                             <td>{{ $license->buildings_num }}</td>
                             <td>
                                 <div class="btns">
-                                    <a href="" class="btn btn-danger delete-lisence" id="{{$license->id}}">حذف</a>
+                                    <a href="" class="btn btn-danger delete-lisence" id="delete-{{$license->id}}">حذف</a>
                                     <a href="/admin/lisence/edit/{{$license->id}}" class="btn btn-primary">تعديل</a>
-                                    <a href="/licenses/download/{{$license->id}}" class="btn btn-success">تحميل ال qr</a>
+                                    <button class="btn btn-success downloadBtn" data-id="{{$license->id}}">تحميل ال qr</button>
+                                    <div id="svgElement-{{$license->id}}" style="position: fixed;top: -1000px; left: -100px">
+                                        {!! $license->qr_code !!}
+                                    </div>
                                 </div>
                             </td>
                         </tr>
@@ -55,7 +58,7 @@
         </div>
     </div>
 </div>
-@endSection
+@endsection
 
 @section("scripts")
 <script src="{{ asset('/admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
@@ -63,12 +66,34 @@
 
 <!-- Page level custom scripts -->
 <script src="{{ asset('/admin/js/demo/datatables-demo.js') }}"></script>
+
 <script>
     $(document).on("click", '.delete-lisence', function(e) {
         e.preventDefault();
-        var id = $(this).attr('id');
+        var id = $(this).attr('id').split('-')[1];
         if (confirm("هل انت متاكد من حذف الرخصة"))
         window.location.href = "/admin/lisence/delete/" + id;
-    })
+    });
+    $(document).on('click', '.downloadBtn', function() {
+    var id = $(this).data('id');
+    var svgElement = document.getElementById('svgElement-' + id);
+
+    html2canvas(svgElement).then(canvas => {
+        // Convert canvas to PNG data URL
+        var pngData = canvas.toDataURL('image/png');
+
+        // Create a download link
+        var downloadLink = document.createElement('a');
+        downloadLink.href = pngData;
+        downloadLink.download = 'download.png';
+
+        // Trigger the download
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }).catch(function(error) {
+        console.error('Error:', error);
+    });
+});
 </script>
-@endSection
+@endsection

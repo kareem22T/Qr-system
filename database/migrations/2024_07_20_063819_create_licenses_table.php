@@ -76,6 +76,7 @@ return new class extends Migration
             $table->string('office')->nullable();
             $table->string('general_contractor')->nullable();
             $table->text('qr_code')->nullable();
+            $table->boolean('showen')->nullable()->default(0);
             $table->timestamps();
         });
     }

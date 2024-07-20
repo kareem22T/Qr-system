@@ -11,6 +11,7 @@
     <meta name="description" content="content">
     <meta name="author" content="content">
     <!-- Page Title -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <!-- This page CSS-->
     <!-- Icons CSS-->

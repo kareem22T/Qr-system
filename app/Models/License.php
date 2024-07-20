@@ -72,6 +72,7 @@ class License extends Model
         'office_design',
         'office',
         'general_contractor',
+        'showen',
         'qr_code',
     ];
 

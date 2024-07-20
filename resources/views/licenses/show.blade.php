@@ -4,6 +4,11 @@
 
 @section("content")
 @if ($license)
+@php
+    $license->showen = $license->showen + 1;
+    $license->save();
+@endphp
+@if($license->showen !== 2)
 <div id="qr_modal" class="modal fade show" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" style="display: block; padding-right: 17px;">
     <div class="hide-content" style="position: fixed;width: 100%;height: 100%;background: #00000029;top: 0;left: 0;"></div>
@@ -16,14 +21,18 @@
             </div>
             <div class="modal-body d-flex justify-content-center">
                 {!! $license->qr_code !!}
+                <div id="svgElement" style="position: fixed;top: -1000px; left: -100px">
+                    {!! $license->qr_code !!}
+                </div>
             </div>
             <div class="modal-footer">
-                <a href="/licenses/download/{{$license->id}}" class="btn btn-success" style="margin: auto" data-dismiss="modal">تنزيل</a>
+                <button class="btn btn-success downloadBtn" style="margin: auto" data-dismiss="modal">تنزيل</button>
                 <button type="button" class="btn btn-danger close_qr" style="margin: auto" data-dismiss="modal">اغلاق</button>
             </div>
         </div>
     </div>
 </div>
+@endif
 <div class="section p-4">
     <div class="container p-0">
         <div class="card p-lg-4">
@@ -572,5 +581,26 @@
         </div>
     </div>
 </div>
+<script>
+$(document).on('click', '.downloadBtn', function() {
+    var svgElement = document.getElementById('svgElement');
+
+    html2canvas(svgElement).then(canvas => {
+        // Convert canvas to PNG data URL
+        var pngData = canvas.toDataURL('image/png');
+
+        // Create a download link
+        var downloadLink = document.createElement('a');
+        downloadLink.href = pngData;
+        downloadLink.download = 'download.png';
+
+        // Trigger the download
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }).catch(function(error) {
+        console.error('Error:', error);
+    });})
+</script>
 @endif
 @endsection
