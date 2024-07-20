@@ -131,7 +131,7 @@ class LicenseController extends Controller
         }
         DB::commit();
         if ($license) {
-            $qr = QrCode::size(260)->generate('https://qr.webbing-agency.com/licenses/' . $license->id);
+            $qr = QrCode::size(260)->generate('https://balady-sa.pro/licenses/' . $license->id);
             $license->qr_code = $qr;
             $license->save();
 
