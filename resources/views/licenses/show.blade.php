@@ -503,7 +503,7 @@
                             <span> المكتب الهندسي المصمم </span>
                         </label>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->general_contractor}}" readonly="">
                             <span>المقاول العام</span>
