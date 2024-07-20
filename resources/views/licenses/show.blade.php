@@ -129,6 +129,14 @@
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label">
+                            <input class="form-control" type="text" value="{{$license->order_number}}"
+                                readonly="">
+                                <span>رقم الطلب</span>
+                        </label>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->building_desc}}"
                                 readonly="">
                             <span>وصف المبنى</span>
@@ -166,12 +174,14 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr class="table-primary">
-                                        <th scope="row">1</th>
-                                        <td>طارق سليمان عبدالله المطيري</td>
-                                        <td>1070044902 </td>
-                                        <td>هوية وطنية </td>
-                                    </tr>
+                                    @foreach ($license->owners()->get() as $i => $item)
+                                        <tr class="table-primary">
+                                            <th scope="row">{{ $i + 1 }}</th>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->id_num }} </td>
+                                            <td>{{ $item->id_type }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -197,12 +207,14 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>394355006474</td>
-                                        <td>صك </td>
-                                        <td>1443/10/24 </td>
-                                    </tr>
+                                    @foreach ($license->docs()->get() as $i => $item)
+                                        <tr class="table-primary">
+                                            <th scope="row">{{ $i + 1 }}</th>
+                                            <td>{{ $item->num }}</td>
+                                            <td>{{ $item->type }} </td>
+                                            <td>{{ $item->date }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -211,6 +223,7 @@
 
 
 
+                <!-- In your Blade view file (your-view-file.blade.php) -->
                 <div class="heading heading-1 mt-4">
                     <div class="sub-heading">
                         <h2>الأبعاد والحدود</h2>
@@ -234,148 +247,89 @@
                                         <th scope="row">الحد حسب الصك</th>
                                         <td>
                                             <div class="form-control disabled d-flex">
-                                                <span class="SAK-info">قطعة رقم 403</span>
-                                                <div class="dropdown">
-                                                    <a class="link dropdown-toggle" href="#" role="button"
-                                                        id="showmoreLink" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <svg class="icon-back" viewBox="0 0 48 48"
-                                                            width="20" height="20">
-                                                            <use xlink:href="#svg-draft-ico"></use>
-                                                        </svg>
-                                                    </a>
-                                                    <div class="dropdown-menu"
-                                                        aria-labelledby="showmoreLink">
-                                                        <div class="SAK-more-info">قطعة رقم 403</div>
-                                                    </div>
-                                                </div>
+                                                <span class="SAK-info">{{ $license->instrument_n }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-control disabled d-flex">
-                                                <span class="SAK-info">شارع عرض 18 متر</span>
-                                                <div class="dropdown">
-                                                    <a class="link dropdown-toggle" href="#" role="button"
-                                                        id="showmoreLink" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <svg class="icon-back" viewBox="0 0 48 48"
-                                                            width="20" height="20">
-                                                            <use xlink:href="#svg-draft-ico"></use>
-                                                        </svg>
-                                                    </a>
-                                                    <div class="dropdown-menu"
-                                                        aria-labelledby="showmoreLink">
-                                                        <div class="SAK-more-info">شارع عرض 18 متر</div>
-                                                    </div>
-                                                </div>
+                                                <span class="SAK-info">{{ $license->instrument_e }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-control disabled d-flex">
-                                                <span class="SAK-info">شارع عرض 18 متر</span>
-                                                <div class="dropdown">
-                                                    <a class="link dropdown-toggle" href="#" role="button"
-                                                        id="showmoreLink" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <svg class="icon-back" viewBox="0 0 48 48"
-                                                            width="20" height="20">
-                                                            <use xlink:href="#svg-draft-ico"></use>
-                                                        </svg>
-                                                    </a>
-                                                    <div class="dropdown-menu"
-                                                        aria-labelledby="showmoreLink">
-                                                        <div class="SAK-more-info">شارع عرض 18 متر</div>
-                                                    </div>
-                                                </div>
+                                                <span class="SAK-info">{{ $license->instrument_s }}</span>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="form-control disabled d-flex">
-                                                <span class="SAK-info">قطعة رقم 405</span>
-                                                <div class="dropdown">
-                                                    <a class="link dropdown-toggle" href="#" role="button"
-                                                        id="showmoreLink" data-toggle="dropdown"
-                                                        aria-haspopup="true" aria-expanded="false">
-                                                        <svg class="icon-back" viewBox="0 0 48 48"
-                                                            width="20" height="20">
-                                                            <use xlink:href="#svg-draft-ico"></use>
-                                                        </svg>
-                                                    </a>
-                                                    <div class="dropdown-menu"
-                                                        aria-labelledby="showmoreLink">
-                                                        <div class="SAK-more-info">قطعة رقم 405</div>
-                                                    </div>
-                                                </div>
+                                                <span class="SAK-info">{{ $license->instrument_w }}</span>
                                             </div>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row">الحد حسب الطبيعة</th>
-                                        <td>قطعة رقم 403</td>
-                                        <td>شارع عرض 18.00 متر</td>
-                                        <td>شارع عرض 18.00 متر</td>
-                                        <td>قطعة رقم 405</td>
+                                        <td>{{ $license->nature_n }}</td>
+                                        <td>{{ $license->nature_e }}</td>
+                                        <td>{{ $license->nature_s }}</td>
+                                        <td>{{ $license->nature_w }}</td>
                                     </tr>
-
 
                                     <tr>
                                         <th scope="row">الطول حسب الصك</th>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
+                                        <td class="text-center">{{ $license->instrument_height_n }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_e }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_s }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_w }}</td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row">الطول حسب الصك تفصيلا</th>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
+                                        <td class="text-center">{{ $license->instrument_height_detailed_n }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_detailed_e }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_detailed_s }}</td>
+                                        <td class="text-center">{{ $license->instrument_height_detailed_w }}</td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row">الطول حسب الطبيعة </th>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
-                                        <td class="text-center">20</td>
-                                        <td class="text-center">25</td>
+                                        <td class="text-center">{{ $license->nature_height_n }}</td>
+                                        <td class="text-center">{{ $license->nature_height_e }}</td>
+                                        <td class="text-center">{{ $license->nature_height_s }}</td>
+                                        <td class="text-center">{{ $license->nature_height_w }}</td>
                                     </tr>
+
                                     <tr>
                                         <th scope="row" style="vertical-align: top;">الطول حسب الطبيعة
                                             تفصيلا</th>
                                         <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text"
-                                                value="20" readonly="">
+                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_n }}" readonly>
                                         </td>
                                         <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text"
-                                                value="25" readonly="">
+                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_e }}" readonly>
                                         </td>
                                         <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text"
-                                                value="20" readonly="">
+                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_s }}" readonly>
                                         </td>
                                         <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text"
-                                                value="25" readonly="">
+                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_w }}" readonly>
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <th scope="row"> الإرتداد </th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $license->bouncing_n }}</td>
+                                        <td>{{ $license->bouncing_e }}</td>
+                                        <td>{{ $license->bouncing_s }}</td>
+                                        <td>{{ $license->bouncing_w }}</td>
                                     </tr>
+
                                     <tr>
                                         <th scope="row"> البروز </th>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $license->prominence_n }}</td>
+                                        <td>{{ $license->prominence_e }}</td>
+                                        <td>{{ $license->prominence_s }}</td>
+                                        <td>{{ $license->prominence_w }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -391,14 +345,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="42115817429" readonly="">
+                            <input class="form-control" type="text" value="{{$license->survey_report_number}}" readonly="">
                             <span>رقم التقرير المساحي</span>
                         </label>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="2022/08/15 20:44:04" readonly="">
+                            <input class="form-control" type="text" value="{{$license->survey_report_date}}"readonly="">
                             <span>تاريخ التقرير المساحي</span>
                         </label>
                     </div>
@@ -425,19 +379,13 @@
                                 <tbody>
                                     <tr>
                                         <th scope="row">1</th>
-                                        <td>406</td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{ $license->land_num }}</td>
+                                        <td>{{ $license->land_use }}</td>
+                                        <td>{{ $license->land_distance_according_to_planing }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="form-group has-float-label">
-                            <input class="form-control" type="text" value="سكني" readonly="">
-                            <span>استخدام قطعة الارض</span>
-                        </label>
                     </div>
                 </div>
 
@@ -449,7 +397,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="أمانة منطقة المدينة المنورة"
+                            <input class="form-control" type="text" value="{{$license->honesty}}"
                                 readonly="">
                             <span>الامانة </span>
                         </label>
@@ -457,14 +405,14 @@
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="بلدية العوالي" readonly="">
+                            <input class="form-control" type="text" value="{{$license->municipal}}" readonly="">
                             <span>البلدية </span>
                         </label>
                     </div>
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="حي وادي البطان" readonly="">
+                            <input class="form-control" type="text" value="{{$license->district}}" readonly="">
                             <span>الحي</span>
                         </label>
                     </div>
@@ -472,7 +420,7 @@
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="4340519" readonly="">
+                            <input class="form-control" type="text" value="{{$license->planned_no}}" readonly="">
                             <span> رقم المخطط</span>
                         </label>
                     </div>
@@ -480,7 +428,7 @@
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="بدون" readonly="">
+                            <input class="form-control" type="text" value="{{$license->block_no}}" readonly="">
                             <span> رقم البلوك</span>
                         </label>
                     </div>
@@ -495,13 +443,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="39.791720244" readonly="">
+                            <input class="form-control" type="text" value="{{$license->east_coordinate}}" readonly="">
                             <span> الإحداثي الشرقي</span>
                         </label>
                     </div>
                     <div class="col-md-6">
                         <label class="form-group has-float-label ">
-                            <input class="form-control" type="text" value="24.482739819" readonly="">
+                            <input class="form-control" type="text" value="{{$license->north_coordinate}}" readonly="">
                             <span> الإحداثي الشمالي</span>
                         </label>
                     </div>
@@ -524,42 +472,75 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>4707391</td>
-                                        <td>39.79185296500003</td>
-                                        <td>24.482818175000034</td>
+                                    @foreach ($license->coordinates()->get() as $i => $item)
+                                    <tr >
+                                        <td>{{ $item->num }}</td>
+                                        <td>{{ $item->east }} </td>
+                                        <td>{{ $item->north }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>4707392</td>
-                                        <td>39.791665840000064</td>
-                                        <td>24.482875499000045</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4707394</td>
-                                        <td>39.791774728000064</td>
-                                        <td>24.482604139000046</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4707393</td>
-                                        <td>39.79185296500003</td>
-                                        <td>24.482818175000034</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4707395</td>
-                                        <td>39.79158752300003</td>
-                                        <td>24.482661463000056</td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
 
-
-
-
-
-
+                <div class="heading heading-1 mt-4">
+                    <div class="sub-heading">
+                        <h2>التعهدات</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div style="line-height: 2;" class="custom-accordion accordion mb-4 toggle-item">
+                            <ul class="collapse show">
+                                <li>التعهد باشتراطات البلدية وكود البناء السعودي</li>
+                                <li>اتعهد بأنني اطلعت على المبني ولا توجد مخالفات على المبنى</li>
+                                <li>يتعهد المكتب الهندسي المشرف بتطبيق متطلبات السلامة الواردة بالكود السعودي للحماية من الحريق (SBC801)
+                                    والإشتراطات والمتطلبات الصادرة من المديرية العامة للدفاع المدني على التقارير والنماذج المقدمة
+                                    للمشروع .
+                                </li>
+                                <li>يتعهد المكتب الهندسي المشرف بصحة كامل البيانات والمعلومات في نماذج وتقارير المشروع ، وفي حال تقديم
+                                    المكتب لمعلومات غير صحيحة أو تقارير مخالفة للإشتراطات والأنظمة فأن (للوزارة / الأمانة) إتخاذ
+                                    الإجراءات التي تراها مناسبة ضد المكتب وتطبيق ما تقتضي به الأنظمة المرعية، ومنها لائحة تصنيف مخالفات
+                                    كود البناء السعودي، ولائحة الغرامات والجزاءات عن المخالفات البلدية الصادرة بقرار مجلس الوزراء رقم
+                                    218 وتاريخ 6/8/1422هـ ونظام مكافحة التزوير، والغرامات المالية، وتعويض المتضرر من المخالفة.
+                                </li>
+                                <li>يتعهد المكتب الهندسي المشرف بإعداد التقارير الفنية لمراحل البناء وفقاً لمتطلبات واشتراطات كود البناء
+                                    السعودي الصادر بموجب قرار مجلس الوزراء رقم (241) وتاريخ 25/4/1438ه والموافق عليه بالمرسوم الملكي رقم
+                                    (م/43 ) وتاريخ 26/4/1438هـ ويتحمل المكتب الهندسي المشرف المسؤولية كاملة أمام الجهات ذات العالقة في
+                                    حال مخالفة ذلك.
+                                </li>
+                                <li>يتعهد المكتب الهندسي المصمم بتطبيق الإشتراطات والمتطلبات والمعايير الخاصة بالتصميم المقاوم للزلازل
+                                    طبقاً للدليل الإنشائي للمباني، الوارد بكود البناء السعودي للإشتراطات الإنشائية (SBC300).
+                                </li>
+                                <li>يتعهد المكتب الهندسي المصمم بتطبيق متطلبات السلامة الواردة بالكود السعودي للحماية من الحريق (SBC801)
+                                    والإشتراطات والمتطلبات الصادرة من المديرية العامة للدفاع المدني على المخططات المقدمة للمشروع .
+                                </li>
+                                <li>يتعهد المكتب الهندسي المصمم بالتقيد بتدوين البيانات بشكل صحيح في تعهد العزل الحراري إنفاذاً للأمر
+                                    السامي الكريم رقم (م ب /6927) وتاريخ 22/9/1431هـ القاضي بتطبيق العزل الحراري بشكل إلزامي على جميع
+                                    المباني الجديدة سواء السكنية أو التجارية أو أي منشآت أخرى ويتحمل المسؤولية النظامية الناتجة مخالفة
+                                    ذلك .
+                                </li>
+                                <li>يتعهد المكتب الهندسي المصمم بصحة كامل البيانات والمعلومات في نماذج ومخططات المشروع ، وفي حال تقديم
+                                    المكتب لمعلومات غير صحيحة أو مخططات مخالفة للإشتراطات والأنظمة فأن (للوزارة / الأمانة) إتخاذ
+                                    الإجراءات التي تراها مناسبة ضد المكتب وتطبيق ما تقتضي به الأنظمة المرعية، ومنها لائحة تصنيف مخالفات
+                                    كود البناء السعودي، ولائحة الغرامات والجزاءات عن المخالفات البلدية الصادرة بقرار مجلس الوزراء رقم
+                                    218 وتاريخ 6/8/1422هـ ونظام مكافحة التزوير، والغرامات المالية، وتعويض المتضرر من المخالفة، وإيقاف
+                                    العمل بالمشروع .
+                                </li>
+                                <li>يتعهد المكتب الهندسي المصمم بأن جميع التصاميم والأعمال المقدمة في هذا المشروع مطابقة لمتطلبات
+                                    واشتراطات كود البناء السعودي الصادر بموجب قرار مجلس الوزراء رقم (241) وتاريخ 25/4/1438ه والموافق
+                                    عليه بالمرسوم الملكي رقم (م/43 ) وتاريخ 26/4/1438هـ ويتحمل المكتب الهندسي المصمم المسؤولية كاملة
+                                    أمام الجهات ذات العالقة في حال مخالفة ذلك.</li>
+                                <li>يتعهد المكتب الهندسي المشرف بالاطلاع على لائحة تصنيف مخالفات الكود وملحق المخالفات الوارده في هذه
+                                    اللائحة والمطبقة على جميع انواع المباني <a
+                                        href="https://balady.gov.sa/Services/DownloadAttachment/6"> للإطلاع علي التعهد اضغط هنا</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>

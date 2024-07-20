@@ -7,6 +7,39 @@ return [
         'license_no' => [
             'required' => ' رقم شهادة الإشغال مطلوب.',
         ],
+        'owners' => [
+            'required' => 'يجب عليك اضافة الملاك.',
+        ],
+        'owners.*.name' => [
+            'required' => 'يجب عليك اضافة  اسم المالك .',
+        ],
+        'owners.*.id_num' => [
+            'required' => 'يجب عليك اضافة  نوع هوية صاحب الرخصة .',
+        ],
+        'docs' => [
+            'required' => 'يجب عليك اضافة بيانات وثائق الملكية .',
+        ],
+        'docs.*.num' => [
+            'required' => 'يجب عليك اضافة   رقم وثيقة الملكية   .',
+        ],
+        'docs.*.type' => [
+            'required' => 'يجب عليك اضافة   نوع وثيقة الملكية    .',
+        ],
+        'docs.*.date' => [
+            'required' => 'يجب عليك اضافة   تاريخ وثيقة الملكية     .',
+        ],
+        'coordinates' => [
+            'required' => 'يجب عليك اضافة الإحداثيات   .',
+        ],
+        'coordinates.*.num' => [
+            'required' => 'يجب عليك اضافة   رقم الإحداثي   .',
+        ],
+        'coordinates.*.east' => [
+            'required' => 'يجب عليك اضافة   الإحداثي الشرقي    .',
+        ],
+        'coordinates.*.north' => [
+            'required' => 'يجب عليك اضافة  الإحداثي الشمالي     .',
+        ],
         'occupancy_certificate_number' => [
             'required' => ' تاريخ بداية الرخصة مطلوب.',
         ],
