@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('coordinates', function (Blueprint $table) {
             $table->id();
-            $table->string('num');
-            $table->string('north');
-            $table->string('east');
+            $table->string('num')->nullable();
+            $table->string('north')->nullable();
+            $table->string('east')->nullable();
             $table->integer('license_id');
         });
     }

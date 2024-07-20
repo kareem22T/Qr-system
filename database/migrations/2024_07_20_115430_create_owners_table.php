@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('owners', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('id_num');
-            $table->string('id_type');
+            $table->string('name')->nullable();
+            $table->string('id_num')->nullable();
+            $table->string('id_type')->nullable();
             $table->integer('license_id');
         });
     }
