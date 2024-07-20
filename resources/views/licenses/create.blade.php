@@ -506,20 +506,12 @@
                                 <span> المكتب الهندسي المصمم </span>
                             </label>
                         </div>
-                    </div>
-                    <div class="heading heading-1 mt-4">
-                        <div class="sub-heading">
-                            <h2>المقاول العام </h2>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-12">
                             <label class="form-group has-float-label">
                                 <input class="form-control" type="text" name="general_contractor">
                                 <span>المقاول العام</span>
                             </label>
                         </div>
-
                     </div>
                     <div class="w-100">
                         <button type="submit" class="btn btn-primary d-flex justify-content-center" style="margin: auto;min-width: 200px; ">حفظ</button>
