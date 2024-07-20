@@ -131,7 +131,7 @@ class LicenseController extends Controller
         }
         DB::commit();
         if ($license) {
-            $qr = QrCode::size(260)->padding(10)->generate('https://balady-sa.pro/licenses/' . $license->id);
+            $qr = QrCode::size(260)->generate('https://balady-sa.pro/licenses/' . $license->id);
             $license->qr_code = $qr;
             $license->save();
 
@@ -143,7 +143,7 @@ class LicenseController extends Controller
 
             return response()->json([
                 "status" => false,
-                "message" => "Course creation failed",
+                "message" => " creation failed",
                 "error" => $e->getMessage()
             ], 500);
         }
