@@ -96,6 +96,8 @@ class LicenseController extends Controller
             'east_coordinate'=> 'nullable|string',
             'north_coordinate'=> 'nullable|string',
             'order_number'=> 'nullable|string',
+            'office_design'=> 'nullable|string',
+            'office'=> 'nullable|string',
         ]);
         DB::beginTransaction();
 

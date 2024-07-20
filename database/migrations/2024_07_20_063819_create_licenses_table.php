@@ -72,6 +72,8 @@ return new class extends Migration
             $table->string('east_coordinate')->nullable();
             $table->string('north_coordinate')->nullable();
             $table->string('order_number')->nullable();
+            $table->string('office_design')->nullable();
+            $table->string('office')->nullable();
             $table->text('qr_code')->nullable();
             $table->timestamps();
         });
