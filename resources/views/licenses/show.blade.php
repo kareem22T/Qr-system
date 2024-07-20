@@ -59,6 +59,13 @@
                     </div>
                     <div class="col-md-6">
                         <label class="form-group has-float-label">
+                            <input class="form-control" type="text" value="{{$license->order_number}}"
+                                readonly="">
+                                <span>رقم الطلب</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->license_starting_date}}" readonly="">
                             <span>تاريخ بداية الرخصة</span>
                         </label>
@@ -127,13 +134,6 @@
                     </div>
 
 
-                    <div class="col-md-6">
-                        <label class="form-group has-float-label">
-                            <input class="form-control" type="text" value="{{$license->order_number}}"
-                                readonly="">
-                                <span>رقم الطلب</span>
-                        </label>
-                    </div>
 
                     <div class="col-md-6">
                         <label class="form-group has-float-label">

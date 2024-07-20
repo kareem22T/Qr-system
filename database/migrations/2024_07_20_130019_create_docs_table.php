@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('docs', function (Blueprint $table) {
             $table->id();
-            $table->string('date');
-            $table->string('num');
-            $table->string('type');
+            $table->string('date')->nullable();
+            $table->string('num')->nullable();
+            $table->string('type')->nullable();
             $table->integer('license_id');
         });
     }

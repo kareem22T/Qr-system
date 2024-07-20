@@ -46,6 +46,12 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-group has-float-label">
+                                <input class="form-control" type="text" name="order_number">
+                                <span>رقم الطلب</span>
+                            </label>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-group has-float-label">
                                 <input class="form-control" type="text" name="license_starting_date">
                                 <span>تاريخ بداية الرخصة</span>
                             </label>
@@ -102,12 +108,6 @@
                             <label class="form-group has-float-label">
                                 <input class="form-control" type="text" name="land_distance">
                                 <span>مساحة الارض الإجمالية</span>
-                            </label>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-group has-float-label">
-                                <input class="form-control" type="text" name="order_number">
-                                <span>رقم الطلب</span>
                             </label>
                         </div>
                         <div class="col-md-6">
