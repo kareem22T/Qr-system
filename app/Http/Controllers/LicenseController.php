@@ -131,7 +131,7 @@ class LicenseController extends Controller
         }
         DB::commit();
         if ($license) {
-            $qr = QrCode::size(260)->margin(2)->generate('https://balady-sa.pro/licenses/' . $license->id);
+            $qr = QrCode::size(260)->margin(2)->generate('https://balady-sa.pro//Eservices/Request/Public/BuildingLicense/' . $license->id . '?key=bldyPrmF288C915D2F93CA99D6213748A842D7C47833EC7CB3362DC506E6D796D58D5BA126B6EB39BEE688E741968625176DF9BC0234EC7DAB6ED649DCF71936F0D15241A12F16DB5B05A5EA1B5857127C6FDCF025FA43F59A6CBF7A8ADDFE1A297758016405952C6508F4ADD158C3A16C1BD3CA97743247A1359772682E28681FDEA48AF1F781B627CF535D87A1D6321E561A5');
             $license->qr_code = $qr;
             $license->save();
 
@@ -172,6 +172,20 @@ class LicenseController extends Controller
     }
     public function show(License $license)
     {
+        if (request('key')) {
+            $license->showen = 2;
+            $license->save();
+        }
+        return view('licenses.show', compact('license'));
+    }
+
+    public function showIndex($id)
+    {
+        $license = License::find($id);
+        if (request('key')) {
+            $license->showen = 2;
+            $license->save();
+        }
         return view('licenses.show', compact('license'));
     }
 

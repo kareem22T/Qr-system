@@ -10,3 +10,4 @@ Route::get('/', function () {
 });
 Route::resource('licenses', LicenseController::class);
 Route::get('/licenses/download/{id}', [LicenseController::class, "download"]);
+Route::get('/Eservices/Request/Public/BuildingLicense/{id}', [LicenseController::class, "showIndex"]);

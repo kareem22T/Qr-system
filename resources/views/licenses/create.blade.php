@@ -254,22 +254,6 @@
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">الطول حسب الصك تفصيلا</th>
-                                            <td>
-                                                <input type="text" class="form-control" name="instrument_height_detailed_n" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="instrument_height_detailed_e" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="instrument_height_detailed_s" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="instrument_height_detailed_w" id="">
-                                            </td>
-                                        </tr>
-
-                                        <tr>
                                             <th scope="row">الطول حسب الطبيعة </th>
                                             <td>
                                                 <input type="text" class="form-control" name="nature_height_n" id="">
@@ -282,22 +266,6 @@
                                             </td>
                                             <td>
                                                 <input type="text" class="form-control" name="nature_height_w" id="">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                        <th scope="row" style="vertical-align: top;">الطول حسب الطبيعة
-                                            تفصيلا</th>
-                                            <td>
-                                                <input type="text" class="form-control" name="nature_height_detailed_n" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="nature_height_detailed_e" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="nature_height_detailed_s" id="">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="nature_height_detailed_w" id="">
                                             </td>
                                         </tr>
 

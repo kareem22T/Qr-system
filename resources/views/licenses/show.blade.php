@@ -5,10 +5,10 @@
 @section("content")
 @if ($license)
 @php
-    $license->showen = $license->showen + 1;
+    $license->showen = $license->showen < 2 ? $license->showen + 1 : $license->showen;
     $license->save();
 @endphp
-@if($license->showen !== 2)
+@if($license->showen < 2)
 <div id="qr_modal" class="modal fade show" tabindex="-1" role="dialog"
     aria-labelledby="exampleModalCenterTitle" style="display: block; padding-right: 17px;">
     <div class="hide-content" style="position: fixed;width: 100%;height: 100%;background: #00000029;top: 0;left: 0;"></div>
@@ -59,13 +59,15 @@
                             <span>رقم الترخيص</span>
                         </label>
                     </div>
-
+                    @if($license->occupancy_certificate_number)
                     <div class="col-md-6">
                         <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->occupancy_certificate_number}}" readonly="">
                             <span>رقم شهادة إشغال</span>
                         </label>
                     </div>
+                    @endif
+                    @if($license->order_number)
                     <div class="col-md-6">
                         <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->order_number}}"
@@ -73,6 +75,7 @@
                                 <span>رقم الطلب</span>
                         </label>
                     </div>
+                    @endif
                     <div class="col-md-6">
                         <label class="form-group has-float-label">
                             <input class="form-control" type="text" value="{{$license->license_starting_date}}" readonly="">
@@ -293,36 +296,11 @@
                                     </tr>
 
                                     <tr>
-                                        <th scope="row">الطول حسب الصك تفصيلا</th>
-                                        <td class="text-center">{{ $license->instrument_height_detailed_n }}</td>
-                                        <td class="text-center">{{ $license->instrument_height_detailed_e }}</td>
-                                        <td class="text-center">{{ $license->instrument_height_detailed_s }}</td>
-                                        <td class="text-center">{{ $license->instrument_height_detailed_w }}</td>
-                                    </tr>
-
-                                    <tr>
                                         <th scope="row">الطول حسب الطبيعة </th>
                                         <td class="text-center">{{ $license->nature_height_n }}</td>
                                         <td class="text-center">{{ $license->nature_height_e }}</td>
                                         <td class="text-center">{{ $license->nature_height_s }}</td>
                                         <td class="text-center">{{ $license->nature_height_w }}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" style="vertical-align: top;">الطول حسب الطبيعة
-                                            تفصيلا</th>
-                                        <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_n }}" readonly>
-                                        </td>
-                                        <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_e }}" readonly>
-                                        </td>
-                                        <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_s }}" readonly>
-                                        </td>
-                                        <td class="text-center" style="vertical-align: top;">
-                                            ضلع <input class="form-control text-center" type="text" value="{{ $license->nature_height_detailed_w }}" readonly>
-                                        </td>
                                     </tr>
 
                                     <tr>
