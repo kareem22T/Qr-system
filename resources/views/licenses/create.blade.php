@@ -130,7 +130,6 @@
 
                                     <thead class="bg-primary text-white">
                                         <tr>
-                                            <th scope="col"> # </th>
                                             <th scope="col"> اسم المالك </th>
                                             <th scope="col"> رقم هوية صاحب الرخصة </th>
                                             <th scope="col"> نوع هوية صاحب الرخصة </th>
@@ -140,7 +139,6 @@
 
                                     <tbody>
                                         <tr class="table-primary" v-for="(item, index) in owners" :key="index">
-                                            <th scope="row">@{{index + 1 }}</th>
                                             <td><input type="text" :name="`owners[${index}][name]`" class="form-control form-sm" v-model="owners[index].name"></td>
                                             <td><input type="text" :name="`owners[${index}][id_num]`" class="form-control form-sm" v-model="owners[index].id_num"></td>
                                             <td><input type="text" :name="`owners[${index}][id_type]`" class="form-control form-sm" v-model="owners[index].id_type"></td>
@@ -164,7 +162,6 @@
 
                                     <thead class="bg-primary text-white">
                                         <tr>
-                                            <th scope="col"> # </th>
                                             <th scope="col"> رقم وثيقة الملكية </th>
                                             <th scope="col"> نوع وثيقة الملكية </th>
                                             <th scope="col"> تاريخ وثيقة الملكية </th>
@@ -174,7 +171,6 @@
 
                                     <tbody>
                                         <tr class="table-primary" v-for="(item, index) in docs" :key="index">
-                                            <th scope="row">@{{index + 1 }}</th>
                                             <td><input type="text" :name="`docs[${index}][num]`" class="form-control form-sm" v-model="docs[index].num"></td>
                                             <td><input type="text" :name="`docs[${index}][type]`" class="form-control form-sm" v-model="docs[index].type"></td>
                                             <td><input type="text" :name="`docs[${index}][date]`" class="form-control form-sm" v-model="docs[index].date"></td>
@@ -336,7 +332,6 @@
                                 <table class="table table-striped table-sm">
                                     <thead class="bg-primary text-white">
                                         <tr>
-                                            <th scope="col"> # </th>
                                             <th scope="col">رقم القطعة </th>
                                             <th scope="col">استخدام قطعة الارض </th>
                                             <th scope="col">مساحة الارض حسب المخطط</th>
@@ -344,7 +339,6 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th scope="row">1</th>
                                             <td>
                                                 <input class="form-control" type="text" name="land_num">
                                             </td>

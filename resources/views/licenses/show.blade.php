@@ -178,7 +178,6 @@
 
                                 <thead class="bg-primary text-white">
                                     <tr>
-                                        <th scope="col"> # </th>
                                         <th scope="col"> اسم المالك </th>
                                         <th scope="col"> رقم هوية صاحب الرخصة </th>
                                         <th scope="col"> نوع هوية صاحب الرخصة </th>
@@ -188,7 +187,6 @@
                                 <tbody>
                                     @foreach ($license->owners()->get() as $i => $item)
                                         <tr class="table-primary">
-                                            <th scope="row">{{ $i + 1 }}</th>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->id_num }} </td>
                                             <td>{{ $item->id_type }}</td>
@@ -211,7 +209,6 @@
 
                                 <thead class="bg-primary text-white">
                                     <tr>
-                                        <th scope="col"> # </th>
                                         <th scope="col"> رقم وثيقة الملكية </th>
                                         <th scope="col"> نوع وثيقة الملكية </th>
                                         <th scope="col"> تاريخ وثيقة الملكية </th>
@@ -221,7 +218,6 @@
                                 <tbody>
                                     @foreach ($license->docs()->get() as $i => $item)
                                         <tr class="table-primary">
-                                            <th scope="row">{{ $i + 1 }}</th>
                                             <td>{{ $item->num }}</td>
                                             <td>{{ $item->type }} </td>
                                             <td>{{ $item->date }}</td>
@@ -357,7 +353,6 @@
                             <table class="table table-striped table-sm">
                                 <thead class="bg-primary text-white">
                                     <tr>
-                                        <th scope="col"> # </th>
                                         <th scope="col">رقم القطعة </th>
                                         <th scope="col">استخدام قطعة الارض </th>
                                         <th scope="col">مساحة الارض حسب المخطط</th>
@@ -365,7 +360,6 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">1</th>
                                         <td>{{ $license->land_num }}</td>
                                         <td>{{ $license->land_use }}</td>
                                         <td>{{ $license->land_distance_according_to_planing }}</td>
